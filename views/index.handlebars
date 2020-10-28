@@ -1,0 +1,248 @@
+<section class="hero is-bold">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <div id="hero-text" class="columns">
+                <div class="column is-7">
+                    <img src="../images/Logo.png" alt="">
+                    <h2 class="subtitle">
+                        Life is a journey and sometimes we just need a little help to take that next step.
+                    </h2>
+                </div>
+                <div class="column login-div is-5">
+                    <div class="subtitle"> Our Mission </div>
+                    <p>Many jobs are out of reach for those who experience homelessness. Our Goal is to help connect those in our
+                        society who need it with companies and organizations that are willing to give people
+                        a hand to help them back onto their feet.</p>
+                    <div>
+                        <button id="viewjobs" class="button is-dark is-large">View Jobs</button>
+                    </div>
+                    <div id="company-login-div">
+                        <h3>Want to help support our mission?</h3>
+                        <p>Sign up for an account or login in and post a job</p>
+                        <button id="login" class="button is-dark">Log In</button>
+                        <button id="signup" class="button is-dark">Sign Up</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+{{!-- Log In Modal --}}
+<div class="modal" id="login-modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Log In</p>
+            <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">E-mail</label>
+                </div>
+                <div class="field-body">
+                    <div class="field is-expanded">
+                        <p class="control is-expanded has-icons-left has-icons-right">
+                            <input class="input loginEmail" type="email" placeholder="E-mail address">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Password</label>
+                </div>
+                <div class="field-body">
+                    <div class="field is-expanded">
+                        <p class="control has-icons-left">
+                            <input class="input loginPassword" type="password" placeholder="Password">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-primary loginBtn" class="submit">
+                Submit
+            </button>
+
+        </footer>
+    </div>
+</div>
+
+{{!-- Sign Up Modal --}}
+<div class="modal" id="signup-modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Sign Up</p>
+            <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Name</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control is-expanded has-icons-left">
+                            <input class="input firstNameInput" type="text" placeholder="First Name">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </p>
+                    </div>
+
+                    <div class="field">
+                        <p class="control is-expanded has-icons-left has-icons-right">
+                            <input class="input lastNameInput" type="text" placeholder="Last Name">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">E-mail</label>
+                </div>
+                <div class="field-body">
+                    <div class="field is-expanded">
+                        <p class="control is-expanded has-icons-left has-icons-right">
+                            <input class="input emailInput" type="email" placeholder="E-mail address">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Phone</label>
+                </div>
+                <div class="field-body">
+                    <div class="field is-expanded">
+                        <div class="field has-addons">
+                            <p class="control">
+                                <a class="button is-static">
+                                    +1
+                                </a>
+                            </p>
+                            <p class="control is-expanded">
+                                <input class="input phoneInput" type="tel" placeholder="Your phone number">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Company</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            {{!-- <input class="input companyInput" type="text" placeholder="Your company's name"> --}}
+                            <div class="select">
+                                <select class='companyInput'>
+                                    <option selected hidden disabled>Select an option</option>
+                                    {{#each companies}}
+                                    <option value='{{id}}'>{{company_name}}</option>
+                                    {{/each}}
+                                    <option value='newCompany'>Create new company</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{!-- hidden inputs for creating a new company --}}
+            <div class='companyForm'>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Company Name</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field is-expanded">
+                            <p class="control has-icons-left">
+                                <input class="input companyNameInput" type="text" placeholder="Company Name">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Company Phone</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field has-addons">
+                            <p class="control">
+                                <a class="button is-static">
+                                    +1
+                                </a>
+                            </p>
+                            <p class="control is-expanded">
+                                <input class="input companyPhoneInput" type="tel" placeholder="Company Phone">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Password</label>
+                </div>
+                <div class="field-body">
+                    <div class="field is-expanded">
+                        <p class="control has-icons-left">
+                            <input class="input passwordInput" type="password" placeholder="Enter a secure password">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-primary newAccountBtn" class="submit">
+                Create Account
+            </button>
+        </footer>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>
+            Copyright 2020 by Next Step
+        </p>
+    </div>
+</footer>

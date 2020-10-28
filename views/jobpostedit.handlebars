@@ -1,0 +1,169 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                    <img src="/images/Logo.png" width="112" height="28">
+                </a>
+
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="/">
+                  Home
+                </a>
+          
+                <a class="navbar-item" href="/profile">
+                    Profile
+                </a>
+
+                <a class="navbar-item" href="/job/create">
+                    Post a Job
+                </a>
+
+                <a class="navbar-item" href='/manager/jobs'>
+                    View Your Listings
+                </a>
+            </div>
+
+        
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-dark" href="/logout">
+                            <strong>Log Out</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    </nav>
+
+
+<section class="container">
+
+    <div class="page-title">
+        Update Job Listing
+    </div>
+
+  <div class= "columns">
+      <div class= "column is-10 is-offset-1 card">
+          <div class="field">
+        <label class="label">Job Title:</label>
+        <div class="control has-icons-left has-icons-right">
+            <input class="input jobtitleInput" type="email" value='{{job.title}}'>
+            <span class="icon is-small is-left">
+                <i class="fas fa-briefcase"></i>
+            </span>
+        </div>
+    </div>
+
+    
+    <div class="field">
+        <label class="label">Job Description:</label>
+        <div class="control">
+            <textarea class="textarea jobdescriptionInput">{{job.description}}</textarea>
+        </div>
+    </div>
+
+
+
+    <div class="field">
+        <label class="label">Contact Phone:</label>
+        <div class="control has-icons-left has-icons-right">
+            <input class="input jobphoneInput" type="email" value='{{company.phone}}'>
+            <span class="icon is-small is-left">
+                <i class="fas fa-phone"></i>
+            </span>
+        </div>
+    </div>
+
+<div class= "columns">
+    <div class="column is-6">
+    <div class="control">
+     <div class="field is-horizontal">
+  <div class="field-label">
+    <label class="label">Job Type:</label>
+  </div>
+  <div class="field-body">
+    <div class="field is-narrow">
+      <div class="control">
+        {{!-- check if job is full or part time --}}
+        {{#if job.isFullTime}}
+        <label class="radio">
+          <input type="radio" name="answer" value="ft" checked>
+          Full-Time
+        </label>
+        <label class="radio">
+          <input type="radio" name="answer" value="pt">
+          Part-Time
+        </label>
+        {{else}}
+        <label class="radio">
+          <input type="radio" name="answer" value="ft">
+          Full-Time
+        </label>
+        <label class="radio">
+          <input type="radio" name="answer" value="pt" checked>
+          Part-Time
+        </label>
+        {{/if}}
+
+      </div>
+      </div>
+      </div>
+    </div>
+</div>
+</div>
+    
+
+ 
+<div class= "column is-6">
+      <div class="control">
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">Job Wage:</label>
+            </div>
+        <div class="field-body">
+             <div class="control has-icons-left">
+            <input class="input jobwageInput" type="email" value='{{job.wage}}'>
+             <span class="icon is-small is-left">
+                <i class="fas fa-dollar-sign"></i>
+            </span>
+                </div>
+        </div>
+       
+          
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <div class="control">
+        <button class="button is-primary is-medium job-update" data-jobid='{{job.id}}'>Submit</button>
+      </div>
+
+
+</div>
+  
+
+    
+
+
+   
+
+
+
+    </div>
+</div>
+
+</section>
+
+<script>
+    $('.job-submit').on()
+</script>

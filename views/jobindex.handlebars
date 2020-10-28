@@ -1,0 +1,154 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/">
+                    <img src="/images/Logo.png" width="150" height="28">
+                </a>
+
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+            data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+            
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            {{#if manager.isLoggedIn}}
+                            <a class="button is-dark" href='/manager/{{manager.id}}'>
+                                <strong>Profile</strong>
+                            </a>
+                            <a class="button is-dark" href='/logout'>
+                                <strong>Log Out</strong>
+                            </a>
+                            {{else}}
+                            <a class="button is-dark navbar-login">
+                                <strong>Log In</strong>
+                            </a>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div id="job-header">
+        <div class="page-title">
+        View Job Listings
+        <hr>
+        </div>
+
+
+      <div class="subtitle">
+          These companies and organizations are currently looking for help:
+      </div>
+        <div class="dropdown is-hoverable">
+            <div class="dropdown-trigger">
+                <button class="button is-primary" aria-haspopup="true" aria-controls="dropdown-menu">
+                    <span>Sort Jobs</span>
+                    <span class="icon is-small">
+                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                <div class="dropdown-content">
+                    <a href="/job/listings/date" class="dropdown-item">
+                        Recently Posted
+                    </a>
+                    <a href="/job/listings/wage" class="dropdown-item">
+                        Wage
+                    </a>
+                    <a href="/job/listings/full-time" class="dropdown-item">
+                        Full-Time
+                    </a>
+                    <a href="/job/listings/part-time" class="dropdown-item">
+                        Part-Time
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="columns jobs-column">
+
+        {{#each jobs}}
+        {{> jobs/jobs}}
+        {{/each}}
+
+    </div>
+
+</div>
+
+
+<div class="modal" id="login-modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Log In</p>
+            <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">E-mail</label>
+                </div>
+                <div class="field-body">
+                    <div class="field is-expanded">
+                        <p class="control is-expanded has-icons-left has-icons-right">
+                            <input class="input loginEmail" type="email" placeholder="E-mail address">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Password</label>
+                </div>
+                <div class="field-body">
+                    <div class="field is-expanded">
+                        <p class="control has-icons-left">
+                            <input class="input loginPassword" type="password" placeholder="Password">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-primary loginBtn" class="submit">
+                Submit
+            </button>
+
+        </footer>
+    </div>
+</div>
+
+
+
+
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>
+            Copyright 2020 by Team 2
+        </p>
+    </div>
+</footer>
